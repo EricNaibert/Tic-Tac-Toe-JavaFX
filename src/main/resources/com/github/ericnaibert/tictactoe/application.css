@@ -1,0 +1,44 @@
+#background{
+    -fx-background-color:"#111111";
+}
+
+.label {
+    -fx-font-size: 45;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: "black";
+    -fx-alignment:center;
+}
+
+#backgroundGridLabel {
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: "#e4e4e4";
+    -fx-alignment:center;
+}
+
+.button {
+    -fx-font-size: 20;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: "black";
+    -fx-alignment:center;
+}
+
+#creditsLabel {
+    -fx-font-size: 12;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: "white";
+    -fx-alignment:center;
+}
+
+#gameStatusLabel {
+    -fx-font-size: 20;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: "black";
+    -fx-alignment:center;
+}
+
+#labelLevel {
+    -fx-font-size: 40;
+    -fx-font-family: "Lucida Console";
+    -fx-text-fill: "white";
+    -fx-alignment:center;
+}
