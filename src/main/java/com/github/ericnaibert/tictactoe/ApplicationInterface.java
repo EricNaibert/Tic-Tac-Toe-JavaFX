@@ -6,6 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -84,10 +85,12 @@ public class ApplicationInterface extends Application {
         });
 
         menuRoot.getChildren().add(easyGameButton);
-
         menuScene.getStylesheets().add(css);
-        stage.setScene(menuScene);
 
+        String applicationIconPath = "/com/github/ericnaibert/tictactoe/images/TicTacToeLogo.png";
+
+        stage.setScene(menuScene);
+        stage.getIcons().add(new Image(Objects.requireNonNull(ApplicationInterface.class.getResourceAsStream(applicationIconPath))));
         stage.setResizable(false);
         stage.setTitle("Tic Tac Toe Menu");
         stage.show();
