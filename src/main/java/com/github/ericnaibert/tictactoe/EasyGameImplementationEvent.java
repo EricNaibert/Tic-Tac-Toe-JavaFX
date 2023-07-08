@@ -6,11 +6,15 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.ArrayList;
+
 public class GameImplementationEvent {
 
     public static String returnPlayerInput;
 
     public static int chosenPosition;
+
+    static ArrayList<Integer> playerInputs = new ArrayList<>();
 
     //I'll take a look at those nested if's someday...
     public static EventHandler<ActionEvent> event = (Event) -> {
@@ -18,17 +22,18 @@ public class GameImplementationEvent {
         int y = 152;
         int x = 245;
 
-        ApplicationInterface.input.requestFocus();
+        ApplicationInterface.inputEasyMode.requestFocus();
+        System.out.println("Easy Mode");
 
-        if(!GameTools.endGame) {
+        if(!EasyGameTools.endGame) {
             try {
-                returnPlayerInput = ApplicationInterface.input.getText();
+                returnPlayerInput = ApplicationInterface.inputEasyMode.getText();
                 chosenPosition = Integer.parseInt(returnPlayerInput);
             } catch (NumberFormatException e) {
                 System.out.println("Invalid number format");
             }
 
-            if (GameTools.playerScore.contains(chosenPosition) || GameTools.cpuScore.contains(chosenPosition) || chosenPosition > 9) {
+            if (EasyGameTools.playerScore.contains(chosenPosition) || EasyGameTools.cpuScore.contains(chosenPosition) || chosenPosition > 9) {
                 Label gameStatusLabel = new Label();
                 gameStatusLabel.setLayoutX(180);
                 gameStatusLabel.setLayoutY(50);
@@ -48,24 +53,22 @@ public class GameImplementationEvent {
                 whiteBox.setFill(Color.WHITE);
                 ApplicationInterface.gameRoot.getChildren().add(whiteBox);
 
-                GameTools.playerScore.add(chosenPosition);
-                GameTools.playerCheck(GameBoard.board, chosenPosition);
+                EasyGameTools.playerScore.add(chosenPosition);
+                EasyGameTools.playerCheck(GameBoard.board, chosenPosition);
 
-                GameTools.winner();
-                if(GameTools.gameGoesOn) {
+                EasyGameTools.winner();
+                if(EasyGameTools.gameGoesOn) {
 
-                    int cpuChosenPosition = (int) (Math.floor(Math.random() * 9) + 1);
-                    while (GameTools.playerScore.contains(cpuChosenPosition) || GameTools.cpuScore.contains(cpuChosenPosition)) {
-                        cpuChosenPosition = (int) (Math.floor(Math.random() * 9) + 1);
-                    }
-                    GameTools.cpuScore.add(cpuChosenPosition);
-                    GameTools.cpuCheck(GameBoard.board, cpuChosenPosition);
+                    int randomNumber = EasyGameTools.cpuRandomNumber();
+                    EasyGameTools.cpuScore.add(randomNumber);
+                    EasyGameTools.cpuCheck(GameBoard.board, randomNumber);
 
-                    GameTools.winner();
+                    EasyGameTools.winner();
+
                 }
             }
-            ApplicationInterface.input.clear();
-            GameTools.winner();
+            ApplicationInterface.inputEasyMode.clear();
+            EasyGameTools.winner();
 
             for (char[] strings : GameBoard.board) {
                 for (int column = 0; column < GameBoard.board.length; column++) {
