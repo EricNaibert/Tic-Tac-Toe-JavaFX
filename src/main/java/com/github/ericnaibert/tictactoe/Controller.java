@@ -15,12 +15,14 @@ public class Controller {
         int clearCanvasY = 152;
         int clearCanvasX = 270;
 
-        GameTools.playerScore.clear();
-        GameTools.cpuScore.clear();
-        GameTools.playerWon = false;
-        GameTools.cpuWon = false;
-        GameTools.endGame = false;
-        GameTools.gameGoesOn = true;
+        EasyGameTools.playerScore.clear();
+        EasyGameTools.cpuScore.clear();
+        EasyGameTools.playerWon = false;
+        EasyGameTools.cpuWon = false;
+        EasyGameTools.endGame = false;
+        EasyGameTools.gameGoesOn = true;
+
+        WinnerFactorLists.resetPlayerInputs();
 
         for (char[] strings : GameBoard.board) {
             for (int column = 0; column < GameBoard.board.length; column++) {

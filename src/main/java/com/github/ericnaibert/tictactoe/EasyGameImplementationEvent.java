@@ -8,7 +8,7 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 
-public class GameImplementationEvent {
+public class EasyGameImplementationEvent {
 
     public static String returnPlayerInput;
 
